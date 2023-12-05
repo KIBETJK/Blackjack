@@ -1,22 +1,38 @@
 let firstCard = 10
 let secondCard = 4
+let cards = [firstCard, secondCard] // array - ordered list of items
 let sum = firstCard + secondCard
 let hasBlackJack = false
 let isAlive = true
 let message = ""
-
-// 2. Create a startGame() function. Move the conditional
-// below (line 11-20) inside the body of the function.
+let messageEl = document.getElementById("message-el")
+let sumEl = document.getElementById("sum-el")
+let cardsEl = document.getElementById("cards-el")
 
 function startGame() {
+    renderGame()
+}
+
+function renderGame() {
+    // render out firstCard and secondCard
+    cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1]
+    // render out ALL the cards we have
+    sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
-        message = "Do you want to draw a new card? 🙂"
+        message = "Do you want to draw a new card?"
     } else if (sum === 21) {
-        message = "Wohoo! You've got Blackjack! 🥳"
+        message = "You've got Blackjack!"
         hasBlackJack = true
     } else {
-        message = "You're out of the game! 😭"
+        message = "You're out of the game!"
         isAlive = false
     }
-    console.log(message)    
+    messageEl.textContent = message
+}
+
+
+function newCard() {
+    let card = 6
+    sum += card
+    renderGame()
 }
