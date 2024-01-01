@@ -1,4 +1,4 @@
-let firstCard = 10
+let firstCard = 11
 let secondCard = 4
 let cards = [firstCard, secondCard] // array - ordered list of items
 let sum = firstCard + secondCard
